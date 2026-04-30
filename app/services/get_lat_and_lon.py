@@ -11,7 +11,10 @@ async def get_lat_and_lon(city_name: str) -> tuple[float, float]:
             headers={"User-Agent": "fastapi-weather-app"},
         )
 
-    data = response.json()
+    try:
+        data = response.json()
+    except Exception:
+        raise ValueError("Invalid response from api")
 
     if not data:
         raise ValueError(f"City {city_name} not found")

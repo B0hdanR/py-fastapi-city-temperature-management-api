@@ -13,5 +13,7 @@ async def get_weather(lat: float, lon: float) -> float:
         )
 
     data = response.json()
-
-    return data["current_weather"]["temperature"]
+    try:
+        return data["current_weather"]["temperature"]
+    except (KeyError, TypeError):
+        raise ValueError("Invalid weather API response")
