@@ -1,4 +1,4 @@
-## FastAPI city temperature management API
+## FastAPI City Temperature Management API
 
 The application consists of two main components (apps):
 
